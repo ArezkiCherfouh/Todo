@@ -1,0 +1,177 @@
+body {
+    background-color: #333;
+    color: #fff;
+    /*display: flex;
+    justify-content: center;
+    align-items: center;*/
+    padding-top: 30px;
+}
+.info {
+    color: #b30000;
+    background-color: #ffe6e6;
+    border: 1px solid #ff0000;
+    padding: 15px 20px;
+    border-radius: 10px;
+    width: fit-content;
+    max-width: 90%;
+    margin: 30px auto;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.15s;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.list {
+    width: 100%;
+}
+.inputdiv,.todolist {
+    display: grid;
+    grid-template-columns: 40% 35% 1fr;
+    column-gap: 10px;
+}
+.todolist {
+    align-items: center;
+    margin-top: 10px;
+    word-wrap: break-word;
+}
+.todo {
+    border: none;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 10px;
+}
+.dodate {
+    border: none;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 10px;
+}
+.addtodo {
+    background-color: #59f166;
+    color: #fff;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.15s;
+    box-shadow: 0 0 5px #0da91a;
+}
+.deletetodo {
+    background-color: #ff0000;
+    color: #fff;
+    height: 70px;
+    border: none;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.15s;
+    box-shadow: 0 0 5px #ab0202;
+}
+.theme {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.godark {
+    font-size: 40px;
+    padding: 5px 15px;
+    border-radius: 30px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.15s;
+    width: 90%;
+    box-shadow: 0 0 7px #000000;
+}  
+
+
+.golight {
+    font-size: 40px;
+    padding: 5px 15px;
+    border-radius: 30px;
+    background-color: #fff;
+    color: black;
+    cursor: pointer;
+    transition: 0.15s;
+    width: 90%;
+    box-shadow: 0 0 7px #fff;
+}  
+.lighttodo {
+    border: none;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    background-color: gray;
+    color: #fff;
+    
+}
+.lighttodo::placeholder{
+    color: #fff;
+}
+.lightdodate {
+    border: none;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 10px;
+    background-color: gray;
+    color: #fff;
+}
+
+@media (min-width:843px) {
+    .addtodo:hover,.deletetodo:hover {
+        transform: scale(1.04);
+        opacity: 0.8;
+    }
+    .addtodo,.deletetodo {
+        cursor: pointer;
+    }
+    .godark:hover {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+    .golight:hover {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+    .info:hover {
+        transform: scale(1.01);
+    }
+    .addtodo {
+        font-size: 18px;
+    }
+}
+@media (max-width:852px) {
+    .inputdiv,.todolist {
+        grid-template-columns: 40% 1fr 20%;
+        column-gap: 10px;
+    }
+    .dodate,.lightdodate {
+        width: 80%;
+    }
+    .addtodo {
+        height: auto;
+    }
+}
+.godark:active {
+    opacity: 0.9;
+    transform: scale(0.9);
+}
+.golight:active {
+    opacity: 0.9;
+    transform: scale(0.9);
+}

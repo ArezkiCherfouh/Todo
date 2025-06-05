@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="icon" href="todo3.png" type="image/x-icon">
+    <link rel="stylesheet" href="Todo.css">
+</head>
+<body>
+    <!--<p class="info">⚠️ Warning: After you remove a to-do, make sure to reload the page. This keeps the list updated correctly and avoids display issues or bugs.</p>-->
+    <div class="theme">
+        <button class="golight" >Light</button>
+    </div>
+    <div class="container">
+        <div class="inputdiv">
+            <input type="text" class="do todo" placeholder="Type Todo" required>
+            <input type="date" name="dodate" id="dodate" class="doda dodate" required>
+            <button class="addtodo">+ Add Todo</button>
+        </div>
+        <div class="list" tabindex="0">
+        </div>
+    </div>
+    <script src="https://unpkg.com/dayjs@1.11.10/dayjs.min.js"></script>
+    <script src="Todo.js"></script>
+</body>
+</html>
