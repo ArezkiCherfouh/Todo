@@ -45,6 +45,7 @@ function changetheme() {
         lightElement.innerHTML="Dark";
         localStorage.setItem('theme','lightElement');
     }
+    playaddsound();
 }
 document.querySelector('.golight').addEventListener('click',changetheme);
 let todolist=[];
