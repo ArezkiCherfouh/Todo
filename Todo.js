@@ -4,7 +4,7 @@ let tommorow= dayjs().add(1,'day');
 tommorow=tommorow.format('YYYY-MM-DD');
 document.querySelector('.doda').min=today;
 document.querySelector('.doda').value=today;
-let removesound=new Audio('remove2.mp3');
+let removesound=new Audio('remove.mp3');
 removesound.preload='auto';
 async function playremovesound() {
     removesound.currentTime=0;
