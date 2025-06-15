@@ -4,6 +4,18 @@ let tommorow= dayjs().add(1,'day');
 tommorow=tommorow.format('YYYY-MM-DD');
 document.querySelector('.doda').min=today;
 document.querySelector('.doda').value=today;
+let removesound=new Audio('remove2.mp3');
+removesound.preload='auto';
+async function playremovesound() {
+    removesound.currentTime=0;
+    await removesound.play();
+}
+let addsound=new Audio('create.wav');
+addsound.preload='auto';
+function playaddsound() {
+    addsound.currentTime=0;
+    addsound.play();
+}
 function changetheme() {
     const darkElement = document.querySelector('.godark');
     const lightElement = document.querySelector('.golight');
@@ -56,16 +68,17 @@ if (todolist.length!==0) {
         
         let dlbts=document.querySelectorAll('.deletetodo');
         dlbts.forEach((button)=>{
-            button.addEventListener('click',()=>{
+            button.addEventListener('click',async()=>{
                 if (todolist.length>1) {
                     button.parentElement.remove();
+                    await playremovesound();
                     const index = button.parentElement.getAttribute('data-index');
                     todolist.splice(index, 1);
-                    
                     localStorage.setItem('todolist',JSON.stringify(todolist));
                     location.reload();
                 } else {
                     document.querySelector('.list').innerHTML='';
+                    await playremovesound();
                     todolist=[];
                     localStorage.setItem('todolist',todolist);
                     location.reload();
@@ -74,15 +87,20 @@ if (todolist.length!==0) {
         })
     })
 }
-document.querySelector('.addtodo').addEventListener('click',addtodo);
+document.querySelector('.addtodo').addEventListener('click',()=>{
+        playaddsound();
+        addtodo();
+});
 document.querySelector('.do').addEventListener('keydown',(event)=>{
     if (event.key==='Enter') {
+        playaddsound();
         addtodo();
     }
 });
-document.querySelector('.list').addEventListener('keydown',(event)=>{
+document.querySelector('.list').addEventListener('keydown',async(event)=>{
     if (event.key==='Backspace') {
         document.querySelector('.list').innerHTML='';
+        await playremovesound();
         todolist=[];
         localStorage.setItem('todolist',todolist);
     }
@@ -100,6 +118,7 @@ function addtodo() {
     } else {
         document.querySelector('.list').innerHTML+=`<div class="todolist"><p class="todo">${todo}</p><p class="dodate">${dodate}</p><button class="deletetodo">- Remove Todo</button></div>`;
     }
+    
     todolist.push({todo:todo,dodate:dodate});
     document.title=`Todo • ${todolist.length} Todos`;
     if (todolist.length===1) {
@@ -109,9 +128,10 @@ function addtodo() {
     let todos=document.querySelectorAll('.todolist');
     let dlbts=document.querySelectorAll('.deletetodo');
     dlbts.forEach((button,i)=>{
-        button.addEventListener('click',()=>{
+        button.addEventListener('click',async()=>{
             if (todolist.length>1) {
                 button.parentElement.remove();
+                await playremovesound();
                 //const index = button.parentElement.getAttribute('data-index');
                 //todolist.splice(index, 1);
                 todolist.splice(i,1);
@@ -119,6 +139,7 @@ function addtodo() {
                 location.reload();
             } else {
                 document.querySelector('.list').innerHTML='';
+                await playremovesound();
                 todolist=[];
                 localStorage.setItem('todolist',todolist);
                 location.reload();
